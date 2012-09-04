@@ -77,6 +77,7 @@ class Community
 		if (isset($this->container[$key]) && !isset($this->hiddenContainer[$key]))
 		{
 			$this->hiddenContainer[$key] = $this->container[$key]();
+			$this->unsetHiddenContainerKey($key);
 		}
 		return $this->hiddenContainer[$key];
 	}
