@@ -27,6 +27,19 @@ class Community
 	private $hiddenContainer;
 
 	/**
+	 * - unsetHiddenContainerKey
+	 * UNSETS THE INITIAL FUNCTION FROM
+	 * FROM THE HIDEN CONTAINER
+	 * PROPERTY
+	 * @param String
+	 * @return bool
+	*/
+	private function unsetHiddenContainerKey($key)
+	{
+		return unset($this->hiddenContainer[$key]);
+	}
+
+	/**
 	 * - constructor
 	 * ASSIGN TWO PROPERTIES AS EMPTY ARRAYS
 	 * @return NULL
