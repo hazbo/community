@@ -47,7 +47,7 @@ For quickness, I'll just include this class, but you should really be using a cl
     
     echo $world->sayHello();
     
-Here, we have created out community object then have used an anonymous function to return an object of our new class `World` using `set`
+Here, we have created our community object then have used an anonymous function to return an object of our new class `World` using `set`
 
 We have then used `get` to access our new object via the container, and can call method `sayHello()` with it.
 
