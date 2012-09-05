@@ -70,6 +70,3 @@ the `get` method, where as leaving it blank:
     });
 
 Will just les us use the same instance of that object each time.
-
-### Notes
-Each object will only actually be created inside the container when we need to use it, as appose to when it is initially assigned.
