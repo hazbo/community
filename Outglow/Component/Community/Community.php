@@ -15,7 +15,7 @@
  * @license The MIT License (MIT)
 */
 
-class Community
+class Community implements CommunityInterface
 {
 	/**
 	 * CREATE TWO PROPERTIES TO STORE
@@ -34,9 +34,45 @@ class Community
 	 * @param String
 	 * @return bool
 	*/
-	private function unsetHiddenContainerKey($key)
+	private function unsetContainerKey($key)
 	{
-		return unset($this->hiddenContainer[$key]);
+		unset($this->container[$key]);
+		return true;
+	}
+
+	/**
+	 * - handleNewClosure
+	 * CHECKS THE INPUT FOR AN
+	 * INSTANCE OF CLOSURE
+	 * @param Closure
+	 * @param String
+	 * @return bool
+	*/
+	private function handleNewInstanceOfClosure($input, $reference)
+	{
+		if (!($input instanceof \Closure)) {
+			throw new \InvalidArgumentException(sprintf('Identifier "%s" does not contain an object definition.', $reference));
+		} else {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * - checkForNewInstance
+	 * CHECKS TO SEE IF WE NEED A
+	 * NEW INSTANCE OF AN OBJECT
+	 * EACH TIME OR NOT
+	 * @param bool
+	 * @param String
+	 * @return bool
+	 */
+	private function checkForNewInstance($newInstanceFlag, $reference)
+	{
+		if ($newInstanceFlag == true) {
+			$this->container[$reference . '_true'] = true;
+		}
+		return true;
 	}
 
 	/**
@@ -59,9 +95,12 @@ class Community
 	 * @param Function
 	 * @return bool
 	*/
-	public function set($key, $return)
+	public function set($key, $return, $newInstance = false)
 	{
-		return $this->container[$key] = $return;
+		if ($this->handleNewInstanceOfClosure($return, $key) === true) {
+			$this->checkForNewInstance($newInstance, $key);
+			return $this->container[$key] = $return;
+		}
 	}
 
 	/**
@@ -74,10 +113,11 @@ class Community
 	*/
 	public function get($key)
 	{
-		if (isset($this->container[$key]) && !isset($this->hiddenContainer[$key]))
-		{
+		if ((isset($this->container[$key]) && !isset($this->hiddenContainer[$key])) || isset($this->container[$key . '_true'])) {
 			$this->hiddenContainer[$key] = $this->container[$key]();
-			$this->unsetHiddenContainerKey($key);
+			if (!isset($this->container[$key . '_true'])) {
+				$this->unsetContainerKey($key);
+			}
 		}
 		return $this->hiddenContainer[$key];
 	}

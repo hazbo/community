@@ -53,5 +53,23 @@ We have then used `get` to access our new object via the container, and can call
 
 This is just a very basic example, but it can be used in all sorts of ways.
 
+### Extended
+We can also choose whether or not each time we `get` our community object, whether or not it is a new instance
+of that class, or a shared one, meaning it will only ever instantiate one instance of that class which will be stored
+in your container.
+
+    $community->set('world', function() {
+        return new World();
+    }, true);
+
+Passing in true (above) will tell community that we want to instantiate a new instance of that class each time we use
+the `get` method, where as leaving it blank:
+
+    $community->set('world', function() {
+        return new World();
+    });
+
+Will just les us use the same instance of that object each time.
+
 ### Notes
 Each object will only actually be created inside the container when we need to use it, as appose to when it is initially assigned.
