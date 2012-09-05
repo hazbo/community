@@ -41,6 +41,34 @@ class Community implements CommunityInterface
 	}
 
 	/**
+	 * - unsetContainerSingleKey
+	 * UNSETS THE BOOLEAN KEY FOR SINGLE
+	 * INSTANCES USED WHEN TRUE IS
+	 * PASSED AS THE THIRD SET PARAM
+	 * @param String
+	 * @return bool
+	 */
+	private function unsetContainerSingleKey($key)
+	{
+		unset($this->container[$key] . '_true');
+	}
+
+	/**
+	 * - unsetHiddenContainerKey
+	 * UNSETS THE VALUE FOR WHAT
+	 * IS STORED IN THE HIDDEN
+	 * CONTAINER THAT RELATES TO
+	 * THIS KEY
+	 * @param String
+	 * @return bool
+	 */
+	private function unsetHiddenContainerKey($key)
+	{
+		unset($this->hiddenContainer[$key]);
+		return true;
+	}
+
+	/**
 	 * - handleNewClosure
 	 * CHECKS THE INPUT FOR AN
 	 * INSTANCE OF CLOSURE
@@ -120,6 +148,22 @@ class Community implements CommunityInterface
 			}
 		}
 		return $this->hiddenContainer[$key];
+	}
+
+	/**
+	 * - remove
+	 * REMOVES ALL TRACES THAT ARE
+	 * ASSOCIATED WITH THE GIVEN
+	 * KEY
+	 * @param String
+	 * @return bool
+	 */
+	public function remove($key)
+	{
+		$this->unsetContainerKey($key);
+		$this->unsetContainerSingleKey($key);
+		$this->unsetHiddenContainerKey($key);
+		return true;
 	}
 }
 
