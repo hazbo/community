@@ -50,7 +50,7 @@ class Community implements CommunityInterface
 	 */
 	private function unsetContainerSingleKey($key)
 	{
-		unset($this->container[$key] . '_true');
+		unset($this->container[$key . '_true']);
 	}
 
 	/**
