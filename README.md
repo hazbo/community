@@ -3,8 +3,8 @@
 Community is a small and simple dependency injection container for PHP 5.3.0 +
 
   - PSR-0 compliant
-  - Less than 100 lines of code
   - Easy to use
+  - Stable
 
 ## Installation
 Add `outglow/community` to your composer.json file
