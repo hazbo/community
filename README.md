@@ -35,9 +35,9 @@ For quickness, I'll just include this class, but you should really be using a cl
     include('vendor/autoload.php');
     include('World.php');
     
-    use Outglow\Component\Community;
+    use Outglow\Component\Community\Community;
     
-    $community = new Community\Community();
+    $community = new Community();
     
     $community->set('world', function() {
         return new World();
