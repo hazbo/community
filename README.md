@@ -70,3 +70,10 @@ the `get` method, where as leaving it blank:
     });
 
 Will just let us use the same instance of that object each time.
+
+We can now also remove any given object from the container using the `remove` method. Continuing from the example above, this is how we would remove `world` from the container:
+
+    $community->remove('world');
+
+This can be done after assigning/using the world object, maybe you don't need it in the container anymore, and it will free up memory a little bit.
+
