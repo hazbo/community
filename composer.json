@@ -2,7 +2,7 @@
     "name": "outglow/community",
     "type": "library",
     "description": "Outglow PSR-0 dependency injection container",
-    "keywords": ["outglow","dependency", "injection", "container"],
+    "keywords": ["harry","outglow","dependency", "injection", "container"],
     "require": {
         "php": ">=5.3.0"
     },
