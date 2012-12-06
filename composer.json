@@ -8,6 +8,5 @@
     },
     "autoload": {
         "psr-0": { "Outglow\\Component\\Community": "" }
-    },
-    "minimum-stability": "dev"
+    }
 }
