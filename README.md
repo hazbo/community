@@ -80,27 +80,12 @@ We can now also remove any given object from the container using the `remove` me
 This can be done after assigning/using the world object, maybe you don't need it in the container anymore, and it will free up memory a little bit.
 
 ### Tests
-Unit tests have recently been added, along with a build file for ant.
+Unit tests have recently been added, along with a build file for ant. You can test by doing the following:
 
+    $ cd /path/to/community
     $ ant
-    Buildfile: /vagrant/build.xml
 
-    clean:
-       [delete] Deleting directory /vagrant/build
+Only using phpunit?
 
-    prepare:
-        [mkdir] Created dir: /vagrant/build/logs
-
-    phpunit:
-         [exec] PHPUnit 3.6.12 by Sebastian Bergmann.
-         [exec] 
-         [exec] ...
-         [exec] 
-         [exec] Time: 0 seconds, Memory: 4.50Mb
-         [exec] 
-         [exec] OK (3 tests, 3 assertions)
-
-    build:
-
-    BUILD SUCCESSFUL
-    Total time: 0 seconds
+    $ cd /path/to/community
+    $ phpunit tests
