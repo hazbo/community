@@ -1,7 +1,7 @@
 <?php
 
-require_once('../Outglow/Component/Community/CommunityInterface.php');
-require_once('../Outglow/Component/Community/Community.php');
+require_once('../src/Outglow/Component/Community/CommunityInterface.php');
+require_once('../src/Outglow/Component/Community/Community.php');
 
 use Outglow\Component\Community\Community;
 
