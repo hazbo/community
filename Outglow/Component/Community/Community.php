@@ -11,7 +11,7 @@
  * @author Harry Lawrence
  * @copyright Outglow Components 2012
  * @package Community
- * @version 1.0
+ * @version 1.1 Stable
  * @license The MIT License (MIT)
 */
 
@@ -129,6 +129,7 @@ class Community implements CommunityInterface
 			$this->checkForNewInstance($newInstance, $key);
 			return $this->container[$key] = $return;
 		}
+		return false;
 	}
 
 	/**
