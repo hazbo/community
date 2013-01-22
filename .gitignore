@@ -1,3 +1,4 @@
 Vagrantfile
 composer.phar
 provision/
+build/logs/phpunit/CommunityTest.json

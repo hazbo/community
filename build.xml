@@ -1,0 +1,17 @@
+<project name="Community" default="build">
+	<target name="clean">
+		<delete dir="${basedir}/build"/>
+	</target>
+
+	<target name="prepare">
+		<mkdir dir="${basedir}/build/logs"/>
+	</target>
+
+	<target name="phpunit">
+		<exec dir="${basedir}/tests" executable="phpunit" failonerror="true">
+			<arg line="--log-json ${basedir}/build/logs/CommunityTest.json CommunityTest.php" />
+		</exec>
+	</target>
+
+	<target name="build" depends="clean,prepare,phpunit"/>
+</project>
