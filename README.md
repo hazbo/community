@@ -1,6 +1,6 @@
 # Community
 
-[![Build Status](https://travis-ci.org/harry-lawrence/community.png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
+[![Build Status](https://travis-ci.org/harry-lawrence/community.png)](https://travis-ci.org/harry-lawrence/community)
 
 Community is a small and simple dependency injection container for PHP 5.3.0 +
 
