@@ -134,6 +134,26 @@ class Container implements ContainerInterface
 	}
 
 	/**
+	 * - stack
+	 * ALLOWS YOU TO PASS AN ARRAY
+	 * TO CALL SET MORE THAN ONE TIME
+	 * @param Array
+	 * @return bool
+	*/
+	public function stack($classes = array(), $newInstance = false)
+	{
+		foreach ($classes as $key => $class) {
+			$this->set($key, function() use($class) {
+				if (class_exists($class)) {
+					return new $class();
+				}
+				return $class;
+			}, $newInstance);
+		}
+		return true;
+	}
+
+	/**
 	 * - get
 	 * PULL DEPENDENCY OUT OF THE
 	 * CONTAINER AND RETURN ITS
