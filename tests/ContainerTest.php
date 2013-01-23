@@ -30,6 +30,18 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * @covers Outglow\Component\Community\Container::stack
+	 */
+	public function testStack()
+	{
+		$result = $this->container->stack(array(
+			'type'   => 'string',
+			'object' => '\stdClass'
+		));
+		$this->assertTrue($result);
+	}
+
+	/**
 	 * @covers Outglow\Component\Community\Container::get
 	 */
 	public function testGet()
