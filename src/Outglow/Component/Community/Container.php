@@ -127,7 +127,8 @@ class Container implements ContainerInterface
 	{
 		if ($this->handleNewInstanceOfClosure($return, $key) === true) {
 			$this->checkForNewInstance($newInstance, $key);
-			return $this->container[$key] = $return;
+			$this->container[$key] = $return;
+			return true;
 		}
 		return false;
 	}
