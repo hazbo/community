@@ -6,6 +6,21 @@ class Server_Processor
 	private $requestUri;
 	private $requestString;
 
+	private function setHttpHost()
+	{
+		return $this->httpHost = $_SERVER['HTTP_HOST'];
+	}
+
+	private function setRequestUri()
+	{
+		return $this->requestUri = $_SERVER['REQUEST_URI'];
+	}
+
+	private function concatFullRequestString()
+	{
+		return $this->requestString = 'http://' . $this->httpHost . $this->requestUri;
+	}
+
 	public function __construct()
 	{
 		$this->setHttpHost();
@@ -21,23 +36,6 @@ class Server_Processor
 	public function processRequestStringForRoute($baseUrl)
 	{
 		return end(explode($baseUrl, $this->requestString));
-	}
-
-	private function setHttpHost()
-	{
-		return $this->httpHost = $_SERVER['HTTP_HOST'];
-	}
-
-	private function setRequestUri()
-	{
-		return $this->requestUri = $_SERVER['REQUEST_URI'];
-	}
-
-	private function concatFullRequestString()
-	{
-		return $this->requestString = 'http://' 	  .
-									  $this->httpHost .
-									  $this->requestUri;
 	}
 }
 
