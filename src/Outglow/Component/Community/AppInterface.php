@@ -11,29 +11,13 @@
  * @author Harry Lawrence
  * @copyright Outglow Components 2013
  * @package Community
- * @version 1.1 Stable
+ * @version 1.0
  * @license The MIT License (MIT)
 */
 
-class App implements AppInterface
+interface AppInterface
 {
-	private $baseUrl;
 
-	public $container;
-
-	public function __construct()
-	{
-		$this->container = new Container();
-	}
-
-	public function setup($base_url)
-	{
-		$this->baseUrl = $base_url;
-	}
-
-	public function route($key, $function)
-	{
-		
-	}
 }
+
 ?>
