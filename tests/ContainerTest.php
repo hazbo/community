@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * A SIMPLE / SMALL DEPENDENCY INJECTION
+ * CONTAINER FOR PHP 5.3.0 + 5.4.0
+ * 
+ * FEEL FREE TO USE / MODIFY ANY OF THIS
+ * CODE FOR YOUR OWN PROJECTS
+ * OPEN SOURCE / COMMERCIAL
+ *
+ * @author Harry Lawrence
+ * @copyright Outglow Components 2013
+ * @package Community
+ * @version 1.2 Stable
+ * @license The MIT License (MIT)
+*/
+
 require_once(__DIR__ . '/../src/Outglow/Component/Community/ContainerInterface.php');
 require_once(__DIR__ . '/../src/Outglow/Component/Community/Container.php');
 
@@ -26,6 +41,18 @@ class ContainerTest extends PHPUnit_Framework_TestCase
 		$result = $this->container->set('String', function() {
 			return 'string';
 		});
+		$this->assertTrue($result);
+	}
+
+	/**
+	 * @covers Outglow\Component\Community\Container::stack
+	 */
+	public function testStack()
+	{
+		$result = $this->container->stack(array(
+			'type'   => 'string',
+			'object' => '\stdClass'
+		));
 		$this->assertTrue($result);
 	}
 

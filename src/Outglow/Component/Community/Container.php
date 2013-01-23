@@ -11,7 +11,7 @@
  * @author Harry Lawrence
  * @copyright Outglow Components 2013
  * @package Community
- * @version 1.1 Stable
+ * @version 1.2 Stable
  * @license The MIT License (MIT)
 */
 
@@ -123,7 +123,7 @@ class Container implements ContainerInterface
 	 * @param Function
 	 * @return bool
 	*/
-	public function set($key, $return, $newInstance = false)
+	public function set($key, \Closure $return, $newInstance = false)
 	{
 		if ($this->handleNewInstanceOfClosure($return, $key) === true) {
 			$this->checkForNewInstance($newInstance, $key);
@@ -131,6 +131,26 @@ class Container implements ContainerInterface
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * - stack
+	 * ALLOWS YOU TO PASS AN ARRAY
+	 * TO CALL SET MORE THAN ONE TIME
+	 * @param Array
+	 * @return bool
+	*/
+	public function stack($classes = array(), $newInstance = false)
+	{
+		foreach ($classes as $key => $class) {
+			$this->set($key, function() use($class) {
+				if (class_exists($class)) {
+					return new $class();
+				}
+				return $class;
+			}, $newInstance);
+		}
+		return true;
 	}
 
 	/**
