@@ -11,7 +11,7 @@
  * @author Harry Lawrence
  * @copyright Outglow Components 2013
  * @package Community
- * @version 1.0
+ * @version 1.2
  * @license The MIT License (MIT)
 */
 
