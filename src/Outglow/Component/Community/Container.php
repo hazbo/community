@@ -123,7 +123,7 @@ class Container implements ContainerInterface
 	 * @param Function
 	 * @return bool
 	*/
-	public function set($key, $return, $newInstance = false)
+	public function set($key, \Closure $return, $newInstance = false)
 	{
 		if ($this->handleNewInstanceOfClosure($return, $key) === true) {
 			$this->checkForNewInstance($newInstance, $key);
