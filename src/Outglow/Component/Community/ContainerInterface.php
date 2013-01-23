@@ -17,7 +17,7 @@
 
 interface ContainerInterface
 {
-	public function set($key, $return);
+	public function set($key, \Closure $return);
 	public function stack($classes);
 	public function get($key);
 	public function remove($key);
