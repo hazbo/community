@@ -21,6 +21,7 @@ class App extends Container implements AppInterface
 	private $route;
 	private $serverProcessor;
 	private $routerProcessor;
+	private $closureMethod;
 
 	public function __construct()
 	{
@@ -39,14 +40,13 @@ class App extends Container implements AppInterface
 
 	public function route($key, \Closure $function)
 	{
-		if ($key == $this->route) {
-			return $function();
-		}
+		return ($key == $this->route) ? $this->closureMethod = $function : false;
 	}
 
 	public function run()
 	{
-
+		$function = $this->closureMethod;
+		return $function();
 	}
 }
 ?>
