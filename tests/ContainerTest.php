@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../src/Outglow/Component/Community/Container.php');
 
 use Outglow\Component\Community\Container;
 
-class CommunityTest extends PHPUnit_Framework_TestCase
+class ContainerTest extends PHPUnit_Framework_TestCase
 {
 	private $community;
 
@@ -19,21 +19,18 @@ class CommunityTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * - testSet
-	 * TESTS PUBLIC SET METHOD
+	 * @covers Outglow\Component\Community\Container::set
 	 */
 	public function testSet()
 	{
 		$result = $this->container->set('String', function() {
 			return 'string';
 		});
-		$expected = true;
-		$this->assertTrue($result == $expected);
+		$this->assertTrue($result);
 	}
 
 	/**
-	 * - testGet
-	 * TESTS PUBLIC GET METHOD
+	 * @covers Outglow\Component\Community\Container::get
 	 */
 	public function testGet()
 	{
@@ -42,12 +39,11 @@ class CommunityTest extends PHPUnit_Framework_TestCase
 		});
 		$result   = $this->container->get('String');
 		$expected = 'string';
-		$this->assertTrue($result == $expected);
+		$this->assertEquals($expected, $result, "Value 'string' not returned");
 	}
 
 	/**
-	 * - testRemove
-	 * TESTS PUBLIC REMOVE METHOD
+	 * @covers Outglow\Component\Community\Container::remove
 	 */
 	public function testRemove()
 	{
@@ -55,8 +51,7 @@ class CommunityTest extends PHPUnit_Framework_TestCase
 			return 'string';
 		});
 		$result   = $this->container->remove('String');
-		$expected = true;
-		$this->assertTrue($result == $expected);
+		$this->assertTrue($result);
 	}
 }
 
