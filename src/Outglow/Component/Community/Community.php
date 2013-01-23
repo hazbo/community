@@ -9,7 +9,7 @@
  * OPEN SOURCE / COMMERCIAL
  *
  * @author Harry Lawrence
- * @copyright Outglow Components 2012
+ * @copyright Outglow Components 2013
  * @package Community
  * @version 1.1 Stable
  * @license The MIT License (MIT)
