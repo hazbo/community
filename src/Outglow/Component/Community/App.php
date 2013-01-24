@@ -17,6 +17,15 @@
 
 class App extends Container implements AppInterface
 {
+	/**
+	 * CREATES ALL REQUIRED PRIVATE
+	 * PROPERTIES USED IN THIS CLASS
+	 * @var String
+	 * @var String
+	 * @var Object
+	 * @var Object
+	 * @var Closure
+	 */
 	private $baseUrl;
 	private $route;
 	private $serverProcessor;
